@@ -23,11 +23,15 @@ public class Task {
 	}
 
 	public void computeWaitingTime() {
-		this.arrivalTime = helper.getWaitingTime(arrivalTime, finishTime, serviceTime);
+		this.waitingTime = helper.getWaitingTime(arrivalTime, finishTime, serviceTime);
 	}
 
 	public int getWaitingTime() {
 		return waitingTime;
+	}
+
+	public int getServiceTime() {
+		return serviceTime;
 	}
 
 	@Override
