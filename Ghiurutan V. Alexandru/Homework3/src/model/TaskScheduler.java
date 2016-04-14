@@ -13,7 +13,7 @@ public class TaskScheduler {
 	private int nrOfTasksPerQueue;
 	private List<Server> servers;
 	private List<Task> waitingQueue;
-	private Iterator<Task> iterator;
+	private Iterator<Server> iterator;
 
 	public TaskScheduler(int nrOfQueues, int nrOfTasksPerQueue) {
 		this.nrOfQueues = nrOfQueues;
@@ -31,12 +31,26 @@ public class TaskScheduler {
 		return true;
 	}
 
+	private void displayServers(List<Server> servers) {
+		iterator = servers.iterator();
+		int i = 0;
+		while (iterator.hasNext()) {
+			System.out.println("Server " + (i++));
+			Task[] t = iterator.next().getTasks();
+			for (Task task : t) {
+				System.out.println(task);
+			}
+		}
+	}
+
 	private void distributeServers(Task task) {
-		if (servers.isEmpty()) {
+		boolean fullServers = areServersFull();
+		if (servers.isEmpty() || ((servers.size() < nrOfQueues) && (fullServers))) {
 			Server server = new Server(nrOfTasksPerQueue);
 			servers.add(server);
 			server.addTask(task);
-		} else if (areServersFull()) {
+			new Thread(server).start();
+		} else if (fullServers) {
 			waitingQueue.add(task);
 		} else {
 			Collections.sort(servers, new Comparator<Server>() {
@@ -57,6 +71,8 @@ public class TaskScheduler {
 				servers.get(0).addTask(waitingQueue.get(0));
 			}
 		}
+		displayServers(servers);
+
 	}
 
 	public void addTask(Task task) {

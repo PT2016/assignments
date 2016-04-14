@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import view.Gui;
 
 public class TaskGenerator {
+	private static int currentTime = 0;
 	private int minimumArrival, maximumArrival, minimumServiceTime, maximumServiceTime;
 	private int simulationTime;
 	private int numberOfQueues, nrOfTasksPerQueue;
 	private Timer timer;
-	private AtomicInteger timePassed;
 	private TaskScheduler taskScheduler;
 	private Gui gui;
 
@@ -27,7 +27,6 @@ public class TaskGenerator {
 		this.setNrOfTasksPerQueue(nrOfTasksPerQueue);
 		taskScheduler = new TaskScheduler(numberOfQueues, nrOfTasksPerQueue);
 		timer = new Timer();
-		timePassed = new AtomicInteger(0);
 	}
 
 	private int getRandomWithinRange(int min, int max) {
@@ -40,20 +39,24 @@ public class TaskGenerator {
 
 			@Override
 			public void run() {
-				if (timePassed.get() == simulationTime) {
+				if (currentTime == simulationTime) {
 					timer.cancel();
 				}
 				int arrivalTime = getRandomWithinRange(minimumArrival, maximumArrival);
 				int serviceTime = getRandomWithinRange(minimumServiceTime, maximumServiceTime);
 				taskScheduler.addTask(new Task(arrivalTime, serviceTime));
 				gui.displayAction(taskScheduler.getAllServers());
-				timePassed.incrementAndGet();
+				currentTime++;
 			}
 		}, 1000, 1000);
 	}
 
 	public int getNrOfTasksPerQueue() {
 		return nrOfTasksPerQueue;
+	}
+
+	public static int getCurrentTime() {
+		return currentTime;
 	}
 
 	public void setNrOfTasksPerQueue(int nrOfTasksPerQueue) {

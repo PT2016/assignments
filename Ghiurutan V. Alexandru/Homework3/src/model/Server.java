@@ -28,6 +28,8 @@ public class Server implements Runnable {
 		while (true) {
 			try {
 				currentTask = queue.take();
+				currentTask.setFinishTime(TaskGenerator.getCurrentTime());
+				currentTask.computeWaitingTime();
 				Thread.sleep(currentTask.getServiceTime() * 1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

@@ -25,6 +25,7 @@ public class Gui extends JFrame implements ActionListener {
 		this.setLayout(new BorderLayout());
 		initializeSouth();
 		simulation = new JPanel();
+		simulation.setLayout(new FlowLayout());
 		this.add(simulation, BorderLayout.CENTER);
 		this.setSize(400, 400);
 		this.setLocationRelativeTo(null);
