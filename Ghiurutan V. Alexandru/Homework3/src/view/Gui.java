@@ -2,7 +2,9 @@ package view;
 
 import javax.swing.*;
 
-import controller.TaskGenerator;
+import model.Server;
+import model.Task;
+import model.TaskGenerator;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -13,18 +15,34 @@ public class Gui extends JFrame implements ActionListener {
 	private static final String ERROR = "ERROR";
 	private JTextField minimumArrival, maximumArrival, minimumService, maximumService, numberQueues,
 			numberOfTasksPerQueue, simulationInterval;
-	private JPanel south, arrivalPanel, servicePanel, queuesPanel, simulationPanel;
+	private JPanel south, arrivalPanel, servicePanel, queuesPanel, simulationPanel, simulation;
 	private JButton startButton;
 	private int minArrival, maxArrival, minService, maxService, nrQueues, nrOfTasksPerQueue, simInterval;
-private TaskGenerator taskGenerator;
+	private TaskGenerator taskGenerator;
+
 	public Gui() {
 		this.setTitle("Simulation");
 		this.setLayout(new BorderLayout());
 		initializeSouth();
-		this.pack();
+		simulation = new JPanel();
+		simulation.setLayout(new FlowLayout());
+		this.add(simulation, BorderLayout.CENTER);
+		this.setSize(400, 400);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
+	}
+
+	public void displayAction(Server[] servers) {
+		simulation.removeAll();
+		simulation.revalidate();
+		int serversSize = servers.length;
+		for (int i = 0; i < serversSize; i++) {
+			JList<Task> jTasks = new JList<Task>(servers[i].getTasks());
+			simulation.add(jTasks);
+			simulation.repaint();
+			simulation.revalidate();
+		}
 	}
 
 	private void initializeSouth() {
@@ -124,8 +142,9 @@ private TaskGenerator taskGenerator;
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == startButton) {
 			if (checkFields()) {
-          taskGenerator=new TaskGenerator(minArrival,maxArrival,minService,maxService,simInterval,nrQueues,nrOfTasksPerQueue);
-          taskGenerator.start();
+				taskGenerator = new TaskGenerator(this, minArrival, maxArrival, minService, maxService, simInterval,
+						nrQueues, nrOfTasksPerQueue);
+				taskGenerator.start();
 			} else {
 				JOptionPane.showMessageDialog(this, INVALID_FIELDS, ERROR, JOptionPane.ERROR_MESSAGE);
 			}
