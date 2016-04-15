@@ -101,6 +101,12 @@ public BlockingQueue<Client> getClients() {
 	return clients;
 }
 /**
+ * @return the clientsServed
+ */
+public int getClientsServed() {
+	return clientsServed;
+}
+/**
  * prints the queue
  * @return
  */
