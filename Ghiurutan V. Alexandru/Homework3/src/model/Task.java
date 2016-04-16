@@ -18,6 +18,10 @@ public class Task {
 		helper = new HelperTask();
 	}
 
+	public int getArrivalTime() {
+		return arrivalTime;
+	}
+
 	public void setFinishTime(int finishTime) {
 		this.finishTime = finishTime;
 	}
@@ -36,7 +40,6 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return String.format("%s arrival time: %d, service time: %d, waiting time: %d, finish time: %d.\n", name,
-				arrivalTime, serviceTime, waitingTime, finishTime);
+		return String.format("%s arrival time: %d, service time: %d.\n", name, arrivalTime, serviceTime);
 	}
 }

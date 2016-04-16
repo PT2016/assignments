@@ -14,10 +14,10 @@ public class Gui extends JFrame implements ActionListener {
 	private static final String INVALID_FIELDS = "Invalid fields.Please enter again more carefully.";
 	private static final String ERROR = "ERROR";
 	private JTextField minimumArrival, maximumArrival, minimumService, maximumService, numberQueues,
-			numberOfTasksPerQueue, simulationInterval;
+			numberOfTasksPerQueue, simulationInterval,queueToClose,timeToClose;
 	private JPanel south, arrivalPanel, servicePanel, queuesPanel, simulationPanel, simulation;
 	private JButton startButton;
-	private int minArrival, maxArrival, minService, maxService, nrQueues, nrOfTasksPerQueue, simInterval;
+	private int minArrival, maxArrival, minService, maxService, nrQueues, nrOfTasksPerQueue, simInterval,queueClose,timeClose;
 	private TaskGenerator taskGenerator;
 
 	public Gui() {
@@ -27,7 +27,7 @@ public class Gui extends JFrame implements ActionListener {
 		simulation = new JPanel();
 		simulation.setLayout(new FlowLayout());
 		this.add(simulation, BorderLayout.CENTER);
-		this.setSize(400, 400);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
@@ -105,6 +105,8 @@ public class Gui extends JFrame implements ActionListener {
 		queuesPanel.add(numberOfTasksPerQueue);
 		simulationPanel = new JPanel();
 		simulationInterval = new JTextField("Simulation time");
+		queueToClose=new JTextField("Queue to close");
+		timeToClose=new JTextField("Time to close");
 		/*
 		 * simulationInterval.addFocusListener(new FocusListener() {
 		 * 
@@ -116,6 +118,8 @@ public class Gui extends JFrame implements ActionListener {
 		startButton = new JButton("Start simulation");
 		startButton.addActionListener(this);
 		simulationPanel.add(simulationInterval);
+		simulationPanel.add(queueToClose);
+		simulationPanel.add(timeToClose);
 		south.add(arrivalPanel);
 		south.add(servicePanel);
 		south.add(queuesPanel);
@@ -133,6 +137,8 @@ public class Gui extends JFrame implements ActionListener {
 			nrQueues = Integer.valueOf(numberQueues.getText());
 			nrOfTasksPerQueue = Integer.valueOf(numberOfTasksPerQueue.getText());
 			simInterval = Integer.valueOf(simulationInterval.getText());
+			queueClose=Integer.valueOf(queueToClose.getText());
+			timeClose=Integer.valueOf(timeToClose.getText());
 		} catch (NumberFormatException e) {
 			return false;
 		}
@@ -141,13 +147,14 @@ public class Gui extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == startButton) {
-			if (checkFields()) {
+       if (checkFields()) {
 				taskGenerator = new TaskGenerator(this, minArrival, maxArrival, minService, maxService, simInterval,
-						nrQueues, nrOfTasksPerQueue);
-				taskGenerator.start();
+						nrQueues, nrOfTasksPerQueue,queueClose,timeClose);
+				new Thread(taskGenerator).start();
 			} else {
 				JOptionPane.showMessageDialog(this, INVALID_FIELDS, ERROR, JOptionPane.ERROR_MESSAGE);
 			}
+
 		}
 	}
 }
