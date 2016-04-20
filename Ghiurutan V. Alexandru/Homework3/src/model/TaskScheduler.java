@@ -6,24 +6,26 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 
 public class TaskScheduler {
 	private int nrOfQueues;
-	private int nrOfTasksPerQueue;
+	private int nrOfTasksPerQueue, queueClose, timeClose, nrOfTasks, peakHour;
 	private List<Server> servers;
-	private List<Task> waitingQueue;
+	private ArrayBlockingQueue<Task> waitingQueue;
 	private Iterator<Server> iterator;
 
-	public TaskScheduler(int nrOfQueues, int nrOfTasksPerQueue) {
+	public TaskScheduler(int nrOfQueues, int nrOfTasksPerQueue, int queueClose, int timeClose) {
 		this.nrOfQueues = nrOfQueues;
 		this.nrOfTasksPerQueue = nrOfTasksPerQueue;
+		this.queueClose = queueClose;
+		this.timeClose = timeClose;
 		servers = new ArrayList<Server>(nrOfQueues);
-		waitingQueue = new ArrayList<Task>();
+		waitingQueue = new ArrayBlockingQueue<Task>(100);
 	}
 
 	private boolean areServersFull() {
 		for (Server s : servers) {
+
 			if (s.getNrOfTasks() < nrOfTasksPerQueue) {
 				return false;
 			}
@@ -31,19 +33,55 @@ public class TaskScheduler {
 		return true;
 	}
 
+	public int getPeakHour() {
+		return peakHour;
+	}
+
 	private void displayServers(List<Server> servers) {
 		iterator = servers.iterator();
-		int i = 0;
+		int nrTasks = 0;
 		while (iterator.hasNext()) {
-			System.out.println("Server " + (i++));
-			Task[] t = iterator.next().getTasks();
+			Server server = iterator.next();
+			nrTasks += server.getNrOfTasks();
+			System.out.println(server.getName());
+			Task[] t = server.getTasks();
+			System.out.println(server.getNrOfTasks());
 			for (Task task : t) {
 				System.out.println(task);
+			}
+		}
+		if (nrTasks > nrOfTasks) {
+			nrOfTasks = nrTasks;
+			peakHour = TaskGenerator.getCurrentTime();
+		}
+	}
+
+	private void verifyTimeToClose() {
+		if (TaskGenerator.getCurrentTime() == timeClose) {
+			Server serv = new Server(1);
+			Server s=null;
+			serv.setName("Server " + queueClose);
+			if (servers.contains(serv)) {
+				iterator = servers.iterator();
+				while (iterator.hasNext()) {
+					s = iterator.next();
+					if (s.getName().equals(serv.getName())) {
+						break;
+					}
+				}				
+				Task[] tasks=s.getTasks();
+				for (Task t:tasks)
+					waitingQueue.add(t);
+				System.out.println(serv.getName() + " was closed.");
+				System.out.println("Waiting:" + waitingQueue.size());
+				servers.remove(serv);
+
 			}
 		}
 	}
 
 	private void distributeServers(Task task) {
+		verifyTimeToClose();
 		boolean fullServers = areServersFull();
 		if (servers.isEmpty() || ((servers.size() < nrOfQueues) && (fullServers))) {
 			Server server = new Server(nrOfTasksPerQueue);
@@ -68,11 +106,15 @@ public class TaskScheduler {
 			if (waitingQueue.isEmpty()) {
 				servers.get(0).addTask(task);
 			} else {
-				servers.get(0).addTask(waitingQueue.get(0));
+				try {
+					servers.get(0).addTask(waitingQueue.take());
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		displayServers(servers);
-
 	}
 
 	public void addTask(Task task) {
