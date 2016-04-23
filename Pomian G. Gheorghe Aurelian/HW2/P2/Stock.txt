@@ -1,0 +1,10 @@
+10.25 mingeA 123
+7.99 mingeB 25
+1.0 bureteA 49
+12.0 bureteB 398
+5.5 scaunA 96
+5.0 scaunB 3
+2.33 scaunC 16
+1.0 hartaB 48
+15.0 hartaC 44
+155.0 zahar 43

@@ -1,0 +1,5 @@
+a a true
+b b false
+Relu 1 false
+test test false
+delia delia false
