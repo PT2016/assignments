@@ -1,0 +1,43 @@
+Simulation started
+1: Task: 1 1 arrived
+1: Task: 1 1 added to server 1
+1: Stated execution of Task: 1 1
+1: Ended execution of Task: 1 1
+2: Task: 2 1 arrived
+2: Task: 2 1 added to server 1
+2: Stated execution of Task: 2 1
+2: Ended execution of Task: 2 1
+3: Task: 3 1 arrived
+3: Task: 3 1 added to server 1
+3: Stated execution of Task: 3 1
+3: Ended execution of Task: 3 1
+4: Task: 4 1 arrived
+4: Task: 4 1 added to server 1
+4: Stated execution of Task: 4 1
+4: Ended execution of Task: 4 1
+5: Task: 5 1 arrived
+5: Task: 5 1 added to server 1
+5: Stated execution of Task: 5 1
+5: Ended execution of Task: 5 1
+6: Task: 6 1 arrived
+6: Task: 6 1 added to server 1
+6: Stated execution of Task: 6 1
+6: Ended execution of Task: 6 1
+7: Task: 7 1 arrived
+7: Task: 7 1 added to server 1
+7: Stated execution of Task: 7 1
+7: Ended execution of Task: 7 1
+8: Task: 8 1 arrived
+8: Task: 8 1 added to server 1
+8: Stated execution of Task: 8 1
+8: Ended execution of Task: 8 1
+9: Task: 9 1 arrived
+9: Task: 9 1 added to server 1
+9: Stated execution of Task: 9 1
+9: Ended execution of Task: 9 1
+10: Task: 10 1 arrived
+10: Task: 10 1 added to server 1
+10: Stated execution of Task: 10 1
+10: Ended execution of Task: 10 1
+Simulation ended
+Average waiting time: 0.000000; Service time: 1.000000; Peak hour: 0
