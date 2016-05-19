@@ -1,0 +1,32 @@
+{
+  "happy": [
+    "blissful",
+    "cheerful",
+    "delighted",
+    "glad"
+  ],
+  "glad": [
+    "blissful",
+    "cheerful",
+    "delighted",
+    "happy"
+  ],
+  "blissful": [
+    "cheerful",
+    "delighted",
+    "glad",
+    "happy"
+  ],
+  "cheerful": [
+    "blissful",
+    "delighted",
+    "glad",
+    "happy"
+  ],
+  "delighted": [
+    "blissful",
+    "cheerful",
+    "glad",
+    "happy"
+  ]
+}

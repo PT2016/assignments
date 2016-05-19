@@ -1,0 +1,32 @@
+{
+  "patience": [
+    "bearing",
+    "calmness",
+    "humility",
+    "restraint"
+  ],
+  "bearing": [
+    "calmness",
+    "humility",
+    "patience",
+    "restraint"
+  ],
+  "calmness": [
+    "bearing",
+    "humility",
+    "patience",
+    "restraint"
+  ],
+  "restraint": [
+    "bearing",
+    "calmness",
+    "humility",
+    "patience"
+  ],
+  "humility": [
+    "bearing",
+    "calmness",
+    "patience",
+    "restraint"
+  ]
+}
