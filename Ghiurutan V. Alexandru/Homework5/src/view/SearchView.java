@@ -7,8 +7,6 @@ import java.util.Set;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-
 import model.Word;
 
 public class SearchView extends JFrame {
@@ -48,9 +46,22 @@ public class SearchView extends JFrame {
 				Entry<Word, String> newWord = it.next();
 				Object[] row = { newWord.getKey().getWord(), newWord.getValue() };
 				tableModel.addRow(row);
-				;
 			}
 		}
 	}
 
+	public void updateTable() {
+		if (words.size() != 0) {
+			tableModel = new DefaultTableModel(rows, columns);
+			tableModel.setRowCount(0);
+			table.setModel(tableModel);
+			rows = new Object[words.size()][2];
+			Iterator<Entry<Word, String>> it = words.iterator();
+			while (it.hasNext()) {
+				Entry<Word, String> newWord = it.next();
+				Object[] row = { newWord.getKey().getWord(), newWord.getValue() };
+				tableModel.addRow(row);
+			}
+		}
+	}
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_45" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>good</string>
+    </void>
+   </object>
+   <string>well</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>recognized</string>
+    </void>
+   </object>
+   <string>known</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>known</string>
+    </void>
+   </object>
+   <string>recognized</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>person</string>
+    </void>
+   </object>
+   <string>human entity</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>strong</string>
+    </void>
+   </object>
+   <string>powerfull</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>body</string>
+    </void>
+   </object>
+   <string>corp</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>corp</string>
+    </void>
+   </object>
+   <string>body</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>human</string>
+    </void>
+   </object>
+   <string>entity</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>power</string>
+    </void>
+   </object>
+   <string>strength</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>powerfull</string>
+    </void>
+   </object>
+   <string>with body power</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>well</string>
+    </void>
+   </object>
+   <string>good</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>friend</string>
+    </void>
+   </object>
+   <string>a well known person</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>entity</string>
+    </void>
+   </object>
+   <string>human</string>
+  </void>
+ </object>
+</java>
