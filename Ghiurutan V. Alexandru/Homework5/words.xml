@@ -2,55 +2,41 @@
 <java version="1.8.0_45" class="java.beans.XMLDecoder">
  <object class="java.util.HashMap">
   <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>good</string>
+   <object class="model.Word" id="Word0">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word" id="Word1">
+       <void property="dependencies">
+        <void method="add">
+         <object class="model.Word" id="Word2">
+          <void property="dependencies">
+           <void method="add">
+            <object class="model.Word" id="Word3">
+             <void property="word">
+              <string>powerfull</string>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void property="word">
+           <string>strong</string>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void property="word">
+        <string>physical</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>body</string>
+       </void>
+      </object>
+     </void>
     </void>
-   </object>
-   <string>well</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>recognized</string>
-    </void>
-   </object>
-   <string>known</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>known</string>
-    </void>
-   </object>
-   <string>recognized</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>person</string>
-    </void>
-   </object>
-   <string>human entity</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>strong</string>
-    </void>
-   </object>
-   <string>powerfull</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>body</string>
-    </void>
-   </object>
-   <string>corp</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
     <void property="word">
      <string>corp</string>
     </void>
@@ -58,15 +44,19 @@
    <string>body</string>
   </void>
   <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>human</string>
+   <object class="model.Word" id="Word4">
+    <void property="dependencies">
+     <void method="add">
+      <object idref="Word2"/>
+     </void>
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>strength</string>
+       </void>
+      </object>
+     </void>
     </void>
-   </object>
-   <string>entity</string>
-  </void>
-  <void method="put">
-   <object class="model.Word">
     <void property="word">
      <string>power</string>
     </void>
@@ -74,36 +64,42 @@
    <string>strength</string>
   </void>
   <void method="put">
-   <object class="model.Word">
+   <object class="model.Word" id="Word5">
+    <void property="dependencies">
+     <void method="add">
+      <object idref="Word0"/>
+     </void>
+    </void>
     <void property="word">
-     <string>powerfull</string>
+     <string>body</string>
     </void>
    </object>
-   <string>with body power</string>
+   <string>corp</string>
   </void>
   <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>well</string>
-    </void>
-   </object>
-   <string>good</string>
+   <object idref="Word2"/>
+   <string>with physical power</string>
   </void>
   <void method="put">
-   <object class="model.Word">
+   <object class="model.Word" id="Word6">
+    <void property="dependencies">
+     <void method="add">
+      <object idref="Word4"/>
+     </void>
+    </void>
     <void property="word">
-     <string>friend</string>
+     <string>strength</string>
     </void>
    </object>
-   <string>a well known person</string>
+   <string>power</string>
   </void>
   <void method="put">
-   <object class="model.Word">
-    <void property="word">
-     <string>entity</string>
-    </void>
-   </object>
-   <string>human</string>
+   <object idref="Word3"/>
+   <string>strong</string>
+  </void>
+  <void method="put">
+   <object idref="Word1"/>
+   <string>corp</string>
   </void>
  </object>
 </java>

@@ -29,7 +29,15 @@ public class Word extends Observable {
 		notifyObservers(dependencies);
 	}
 
-	private String getDependencies() {
+	public ArrayList<Word> getDependencies() {
+		return dependencies;
+	}
+
+	public void setDependencies(ArrayList<Word> dependencies) {
+		this.dependencies = dependencies;
+	}
+
+	private String toStringDependencies() {
 		String result = "";
 		for (Word newWord : dependencies) {
 			result += newWord;
@@ -39,6 +47,7 @@ public class Word extends Observable {
 
 	@Override
 	public String toString() {
-		return "Word[word:" + getWord() + ",dependency:" + getDependencies() + "]";
+		return "Word[word: " + getWord() + ", dependencies: " + toStringDependencies() + "]";
+
 	}
 }

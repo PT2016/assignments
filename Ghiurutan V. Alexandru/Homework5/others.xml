@@ -4,17 +4,5 @@
   <void method="add">
    <string>with</string>
   </void>
-  <void method="add">
-   <string>a</string>
-  </void>
-  <void method="add">
-   <string>is</string>
-  </void>
-  <void method="add">
-   <string>from</string>
-  </void>
-  <void method="add">
-   <string>to</string>
-  </void>
  </object>
 </java>

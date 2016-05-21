@@ -136,12 +136,18 @@ public class Gui extends JFrame implements ActionListener {
 			String result = String
 					.valueOf(JOptionPane.showInputDialog(this, "Select the type of the word: " + otherWord, "Quiz",
 							JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection));
-			if (!dictionary.containsWord(otherWord) && result.equals(selectionValues[0])) {
-				Word currentWord = new Word();
-				currentWord.setWord(otherWord);
-				currentWord.add(newWord);
-				currentWord.addObserver(dictionary);
-				addWords(currentWord);
+			if (result.equals(selectionValues[0])) {
+				if (!dictionary.containsWord(otherWord)) {
+					Word currentWord = new Word();
+					currentWord.setWord(otherWord);
+					currentWord.add(newWord);
+					currentWord.addObserver(dictionary);
+					addWords(currentWord);
+				} else {
+					Word existingWord = new Word();
+                    existingWord.setWord(newWord.getWord());
+					dictionary.getWord(otherWord).add(existingWord);
+				}
 			} else if (!dictionary.containsOtherWord(otherWord) && result.equals(selectionValues[1])) {
 				dictionary.addOtherWord(otherWord);
 			}

@@ -30,6 +30,7 @@ public class Dictionary implements Observer, DictionaryProc {
 
 	public void start() {
 		inOut = new InOut();
+
 		dictionary = inOut.readDictionary();
 		otherWords = inOut.readOtherWords();
 		printContent();
@@ -50,7 +51,6 @@ public class Dictionary implements Observer, DictionaryProc {
 		assert (isWellFormed()) : "Invariant error.";
 		int preSize = dictionary.size();
 		dictionary.put(word, explanation);
-		inOut.writeDictionary();
 		assert (dictionary.size() == preSize + 1) : "Not valid size in dictionary,";
 		assert (isWellFormed()) : "Invariant error.";
 	}
@@ -60,7 +60,6 @@ public class Dictionary implements Observer, DictionaryProc {
 		assert (!otherWord.equals("")) : "Invalid word.";
 		assert (isWellFormed()) : "Invariant error.";
 		otherWords.add(otherWord);
-		inOut.writeOtherWords();
 		assert (isWellFormed()) : "Invariant error.";
 	}
 
@@ -74,11 +73,8 @@ public class Dictionary implements Observer, DictionaryProc {
 		assert (dictionary.containsKey(word)) : "Not in dictionary.";
 		assert (word != null) : "Invalid word.";
 		assert (isWellFormed()) : "Invariant error.";
-		int preSize = dictionary.size();
 		dictionary.remove(word);
 		word.delete();
-		inOut.writeDictionary();
-		assert (preSize - 1 == dictionary.size()) : "Error at size.";
 		assert (isWellFormed()) : "Invariant error";
 	}
 
@@ -134,7 +130,8 @@ public class Dictionary implements Observer, DictionaryProc {
 	public void update(Observable o, Object arg) {
 		ArrayList<Word> deleteList = (ArrayList<Word>) arg;
 		for (Word word : deleteList) {
-			dictionary.remove(word);
+			Word newWord = getWord(word.getWord());
+			dictionary.remove(newWord);
 		}
 	}
 
