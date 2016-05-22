@@ -3,9 +3,11 @@ package controller;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-
+import java.util.Iterator;
+import java.util.Map.Entry;
 import java.io.*;
 import model.Dictionary;
 import model.Word;
@@ -34,6 +36,7 @@ public class InOut {
 
 	@SuppressWarnings("unchecked")
 	public HashMap<Word, String> readDictionary() {
+		dictionary = Dictionary.getInstance();
 		HashMap<Word, String> result = null;
 		try {
 			XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("words.xml")));
@@ -46,7 +49,22 @@ public class InOut {
 		} catch (FileNotFoundException e) {
 			System.out.println("ERROR: While Creating or Opening the File words.xml");
 		}
-		return result;
+		HashMap<Word, String> res = new HashMap<Word, String>();
+		Iterator<Entry<Word, String>> it = result.entrySet().iterator();
+		while (it.hasNext()) {
+			Entry<Word, String> aux = it.next();
+			ArrayList<Word> dep = aux.getKey().getDependencies();
+			Word newWord = new Word();
+			newWord.addObserver(dictionary);
+			newWord.setWord(aux.getKey().getWord());
+			for (Word word : dep) {
+				Word depen = new Word();
+				depen.setWord(word.getWord());
+				newWord.add(depen);
+			}
+			res.put(newWord, aux.getValue());
+		}
+		return res;
 	}
 
 	public void writeOtherWords() {
