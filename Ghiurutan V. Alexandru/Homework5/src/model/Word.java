@@ -1,16 +1,14 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Observable;
 
 public class Word extends Observable {
 
 	private String word;
-	private List<Word> dependencies;
+	private ArrayList<Word> dependencies;
 
-	public Word(String word) {
-		setWord(word);
+	public Word() {
 		dependencies = new ArrayList<Word>();
 	}
 
@@ -31,8 +29,25 @@ public class Word extends Observable {
 		notifyObservers(dependencies);
 	}
 
+	public ArrayList<Word> getDependencies() {
+		return dependencies;
+	}
+
+	public void setDependencies(ArrayList<Word> dependencies) {
+		this.dependencies = dependencies;
+	}
+
+	private String toStringDependencies() {
+		String result = "";
+		for (Word newWord : dependencies) {
+			result += newWord;
+		}
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Word: " + word;
+		return "Word[word: " + getWord() + ", dependencies: " + toStringDependencies() + "]";
+
 	}
 }

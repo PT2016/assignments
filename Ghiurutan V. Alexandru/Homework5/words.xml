@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_45" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <object class="model.Word" id="Word0">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>powerfull</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="word">
+     <string>strong</string>
+    </void>
+   </object>
+   <string>with physical power</string>
+  </void>
+  <void method="put">
+   <object class="model.Word" id="Word1">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>strong</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="word">
+     <string>physical</string>
+    </void>
+   </object>
+   <string>corp</string>
+  </void>
+  <void method="put">
+   <object class="model.Word">
+    <void property="word">
+     <string>powerfull</string>
+    </void>
+   </object>
+   <string>strong</string>
+  </void>
+  <void method="put">
+   <object class="model.Word" id="Word2">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>power</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="word">
+     <string>strength</string>
+    </void>
+   </object>
+   <string>power</string>
+  </void>
+  <void method="put">
+   <object class="model.Word" id="Word3">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>corp</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="word">
+     <string>body</string>
+    </void>
+   </object>
+   <string>corp</string>
+  </void>
+  <void method="put">
+   <object class="model.Word" id="Word4">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>physical</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>body</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="word">
+     <string>corp</string>
+    </void>
+   </object>
+   <string>body</string>
+  </void>
+  <void method="put">
+   <object class="model.Word" id="Word5">
+    <void property="dependencies">
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>strong</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="model.Word">
+       <void property="word">
+        <string>strength</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="word">
+     <string>power</string>
+    </void>
+   </object>
+   <string>strength</string>
+  </void>
+ </object>
+</java>
