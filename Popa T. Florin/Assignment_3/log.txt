@@ -1,0 +1,121 @@
+
+
+
+Fri Apr 29 16:54:14 EEST 2016
+
+
+
+Checkout #0: is processing client #0
+Client #0 added to the checkout 0 arrived at 0 carrying 10 items.
+Client #1 added to the checkout 0 arrived at 1 carrying 11 items.
+Client #2 added to the checkout 1 arrived at 2 carrying 11 items.
+Checkout #1: is processing client #2
+Client #3 added to the checkout 1 arrived at 3 carrying 11 items.
+Checkout #2: is processing client #4
+Client #4 added to the checkout 2 arrived at 4 carrying 8 items.
+Client #0 was processed.
+Checkout #0: is processing client #1
+Client #5 added to the checkout 0 arrived at 5 carrying 11 items.
+Client #6 added to the checkout 2 arrived at 6 carrying 10 items.
+Client #7 added to the checkout 0 arrived at 7 carrying 7 items.
+Client #2 was processed.
+Checkout #1: is processing client #3
+Client #4 was processed.
+Checkout #2: is processing client #6
+Client #8 added to the checkout 1 arrived at 8 carrying 8 items.
+Client #9 added to the checkout 2 arrived at 9 carrying 9 items.
+Client #1 was processed.
+Checkout #0: is processing client #5
+Client #10 added to the checkout 0 arrived at 10 carrying 11 items.
+Client #11 added to the checkout 1 arrived at 11 carrying 7 items.
+Client #12 added to the checkout 2 arrived at 12 carrying 5 items.
+Client #3 was processed.
+Checkout #1: is processing client #8
+Client #6 was processed.
+Checkout #2: is processing client #9
+Client #13 added to the checkout 1 arrived at 13 carrying 8 items.
+Client #14 added to the checkout 2 arrived at 14 carrying 8 items.
+Client #5 was processed.
+Checkout #0: is processing client #7
+Client #15 added to the checkout 0 arrived at 15 carrying 8 items.
+Client #16 added to the checkout 0 arrived at 16 carrying 5 items.
+Client #8 was processed.
+Checkout #1: is processing client #11
+Client #9 was processed.
+Checkout #2: is processing client #12
+Client #17 added to the checkout 1 arrived at 17 carrying 3 items.
+Client #18 added to the checkout 2 arrived at 18 carrying 6 items.
+Client #7 was processed.
+Checkout #0: is processing client #10
+Client #12 was processed.
+Checkout #2: is processing client #14
+Client #19 added to the checkout 2 arrived at 19 carrying 5 items.
+Client #11 was processed.
+Checkout #1: is processing client #13
+Average waiting time for checkout#0 is: 9.0
+Average waiting time for checkout#1 is: 9.0
+Average waiting time for checkout#2 is: 8.0
+
+
+
+Fri Apr 29 17:00:06 EEST 2016
+
+
+
+Client #0 added to the checkout 0 arrived at 0 carrying 8 items.
+Checkout #0: is processing client #0
+Client #1 added to the checkout 0 arrived at 1 carrying 6 items.
+Checkout #1: is processing client #2
+Client #2 added to the checkout 1 arrived at 2 carrying 6 items.
+Client #3 added to the checkout 1 arrived at 3 carrying 3 items.
+Client #0 was processed.
+Checkout #0: is processing client #1
+Client #4 added to the checkout 0 arrived at 4 carrying 8 items.
+Client #2 was processed.
+Checkout #1: is processing client #3
+Client #5 added to the checkout 1 arrived at 5 carrying 11 items.
+Client #6 added to the checkout 2 arrived at 6 carrying 3 items.
+Checkout #2: is processing client #6
+Client #3 was processed.
+Checkout #1: is processing client #5
+Client #1 was processed.
+Checkout #0: is processing client #4
+Client #7 added to the checkout 0 arrived at 7 carrying 7 items.
+Client #6 was processed.
+Client #8 added to the checkout 1 arrived at 8 carrying 4 items.
+Checkout #2: is processing client #9
+Client #9 added to the checkout 2 arrived at 9 carrying 4 items.
+Client #10 added to the checkout 2 arrived at 10 carrying 6 items.
+Client #4 was processed.
+Checkout #0: is processing client #7
+Client #9 was processed.
+Checkout #2: is processing client #10
+Client #11 added to the checkout 0 arrived at 11 carrying 9 items.
+Client #5 was processed.
+Checkout #1: is processing client #8
+Client #12 added to the checkout 1 arrived at 12 carrying 5 items.
+Client #13 added to the checkout 2 arrived at 13 carrying 9 items.
+Client #8 was processed.
+Checkout #1: is processing client #12
+Client #10 was processed.
+Checkout #2: is processing client #13
+Client #7 was processed.
+Checkout #0: is processing client #11
+Client #14 added to the checkout 0 arrived at 14 carrying 8 items.
+Client #15 added to the checkout 1 arrived at 15 carrying 6 items.
+Client #12 was processed.
+Checkout #1: is processing client #15
+Client #16 added to the checkout 1 arrived at 16 carrying 8 items.
+Client #17 added to the checkout 2 arrived at 17 carrying 4 items.
+Client #13 was processed.
+Client #18 added to the checkout 0 arrived at 18 carrying 5 items.
+Client #11 was processed.
+Checkout #2: is processing client #17
+Checkout #0: is processing client #14
+Client #15 was processed.
+Checkout #1: is processing client #16
+Client #19 added to the checkout 1 arrived at 19 carrying 4 items.
+Client #17 was processed.
+Average waiting time for checkout#0 is: 7.0
+Average waiting time for checkout#1 is: 5.0
+Average waiting time for checkout#2 is: 5.0

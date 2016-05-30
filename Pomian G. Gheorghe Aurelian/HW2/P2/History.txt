@@ -1,0 +1,13 @@
+Relu 2016/04/09 1 2.33 tem6 15
+Relu 2016/04/10 5 1.0 As 4 12.0 ABS 4 5.5 Item22 4 5.0 tem2 4 2.33 tem6 4
+b 2016/04/09 3 1.0 As 1 12.0 ABS 1 5.5 Item22 15
+b 2016/04/10 1 155.0 test3 2
+b 2016/04/23 2 5.0 scaunB 1 5.5 scaunA 1
+delia 2016/04/22 1 1.0 bureteA 1
+b 2016/04/16 3 10.25 mingeA 1 7.99 mingeB 1 1.0 bureteA 1
+b 2016/04/15 1 15.0 test2 1
+b 2016/04/15 1 15.0 test2 1
+delia 2016/04/22 1 1.0 bureteA 1
+b 2016/04/23 1 1.0 hartaB 1
+b 2016/04/16 3 10.25 mingeA 1 7.99 mingeB 1 1.0 bureteA 1
+b 2016/04/23 2 5.0 scaunB 1 5.5 scaunA 1
