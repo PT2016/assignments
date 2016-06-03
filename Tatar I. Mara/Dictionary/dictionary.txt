@@ -1,0 +1,1 @@
+{"nuanta":["culoare"],"barbat":["mascul","el"],"mascul":["barbat","el"],"el":["mascul","barbat"],"dragoste":["iubire","adorare"],"culoare":["nuanta"],"adorare":["iubire","dragoste"],"iubire":["dragoste","adorare"]}
